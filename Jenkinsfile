@@ -3,15 +3,15 @@
      
     stages{
             stage('Build'){
-                steps {
-                    sh 'mvn clean package'
+                            steps {
+                bat 'mvn clean package'
+            }
+            post {
+                success {
+                    echo 'Now Archiving...'
+                    archiveArtifacts artifacts: '**/target/*.war'
                 }
-               /* post {
-                    success {
-                        echo 'Now Archiving...'
-                        archiveArtifacts artifacts: 'C:/Program Files (x86)/Jenkins/workspace/package-pipeline/webapp/target/*.war'
-                    }
-                }*/
+            }
             }
         }
     }
