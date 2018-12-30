@@ -6,12 +6,12 @@
                 steps {
                     sh 'mvn clean package'
                 }
-                post {
+               /* post {
                     success {
                         echo 'Now Archiving...'
                         archiveArtifacts artifacts: 'C:/Program Files (x86)/Jenkins/workspace/package-pipeline/webapp/target/*.war'
                     }
-                }
+                }*/
             }
         }
     }
