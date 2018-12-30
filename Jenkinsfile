@@ -16,10 +16,14 @@
 					}
 				}
             }
-			
 			stage('Deploy to stagging'){
 				steps{
 					build job: 'deploy-to-stagging-pipeline'
+				}
+			}
+			stage('Deploy to production	'){
+				steps{
+					build job: 'deploy-to-prod-pipeline'
 				}
 			}
         }
