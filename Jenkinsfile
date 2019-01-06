@@ -1,43 +1,38 @@
-    pipeline {
-        agent any
-		tools {
-			maven 'localMaven'
-			jdk 'localJDK'
+<<<<<<< HEAD
+pipeline{
+	
+	agent any
+	stages{
+		stage('Build'){
+			steps{
+				bat 'mvn clean package'
+				bat "docker build . -t tomcatwebapp:${env.BUILD_ID}" 	
+			}
 		}
-    stages{
-            stage('Build'){
-				steps {
-					bat 'mvn clean package'
-				}
-				post {
-					success {
-						echo 'Now Archiving...'
-						archiveArtifacts artifacts: '**/target/*.war'
-					}
-				}
-            }
-			stage('Deploy to stagging'){
-				steps{
-					build job: 'deploy-to-stagging-pipeline'
-				}
+	}
+}
+=======
+pipeline {
+	
+	agent any
+
+	stages{
+		stage('Init'){
+			steps{
+				echo "Testing.."
 			}
-			stage('Deploy to production'){
-				steps{
-					
-					timeout(time:5, unit: 'DAYS'){
-						input message: 'Approve PRODUCTION Deployment?'
-					}
-					
-					build job: 'deploy-to-prod-pipeline'
-				}
-				post{
-					success{
-						echo 'Code Deployed to Production.'
-					}
-					failure{
-						echo 'Deployment failed.'
-					}
-				}
+		}
+		stage('Build'){
+			steps{
+				echo "Building.."
 			}
-        }
-    }
+		}
+		stage('Deploy'){
+			steps{
+				echo "Deploying.."
+			}
+		}
+	}
+
+}
+>>>>>>> Create Jenkinsfile
