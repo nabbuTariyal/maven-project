@@ -8,7 +8,7 @@ pipeline{
 		stage('Build'){
 			steps{
 				echo "Test"
-				cmd 'mvn clean package'
+				build 'mvn clean package'
 				echo "Test docker" 
 				
 			}
