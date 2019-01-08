@@ -8,7 +8,7 @@ pipeline{
 		stage('Build'){
 			steps{
 				echo "Test"
-				bat 'clean install'
+				ssh 'clean package'
 				echo "Test docker" 
 				
 			}
