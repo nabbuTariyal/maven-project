@@ -8,7 +8,7 @@ pipeline{
 		stage('Build'){
 			steps{
 				echo "Test"
-				bat "clean package"
+				bat "${maven}\\bin\\mvn clean package"
 				echo "Test docker" 
 				
 			}
