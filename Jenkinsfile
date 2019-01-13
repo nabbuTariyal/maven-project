@@ -9,7 +9,7 @@ pipeline{
 		stage('Build'){
 			steps{
 				echo "Test again"
-				call 'clean package'
+				sh 'call clean package'
 				echo "Test docker" 
 				
 			}
