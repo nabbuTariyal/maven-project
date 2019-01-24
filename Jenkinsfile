@@ -9,7 +9,7 @@ pipeline{
 		stage('Build'){
 			steps{
 				echo "Test again"
-				bat 'clean package'
+				bat 'mvn clean package'
 				echo "Test done" 
 				
 			}
