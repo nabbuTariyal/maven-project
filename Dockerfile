@@ -1,4 +1,4 @@
-FROM tomcatwebapp:8.0
+FROM tomcatwebapp:latest
 
 ADD ./webapp/target/*.war /usr/local/tomcat/webapps/
 
