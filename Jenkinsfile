@@ -6,6 +6,10 @@ pipeline{
 				echo "code build start"
 				bat 'mvn clean install'
 				echo "code build done"
+				echo "pushing war too new docker image created"
+				bat "docker build . -t tomcatwebapp:{evn.BUILD_ID}"
+				echo "Code deployed successfully"
+				
 			}
 		}
 	}
